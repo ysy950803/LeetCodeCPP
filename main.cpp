@@ -1,12 +1,14 @@
 #include <iostream>
-//#include "running_sum_of_1d_array.cpp"
-//#include "shuffle_the_array.cpp"
-#include "kids_with_the_greatest_number_of_candies.cpp"
+//#include "array/running_sum_of_1d_array.cpp"
+//#include "array/shuffle_the_array.cpp"
+//#include "array/kids_with_the_greatest_number_of_candies.cpp"
+#include "array/xor_operation_in_an_rray.cpp"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
 //    test1480();
 //    test1470();
-    test1431();
+//    test1431();
+    test1486();
     return 0;
 }
