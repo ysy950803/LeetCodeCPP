@@ -48,11 +48,39 @@ public:
         }
         return false;
     }
+
+    // 状态转移：dp[i][j]是一个bool矩阵，矩阵元素表示 长度为i的s的子串 是否为 长度为j的t的子串 的子串
+    static bool isSubsequence3(string s, string t) {
+        int s_n = s.size(), t_n = t.size();
+        bool dp[s_n + 1][t_n + 1];
+        // dp[i][0]表示t串长度为0,故必然不为子串
+        for (int i = 0; i <= s_n; ++i) {
+            dp[i][0] = false;
+        }
+        // dp[0][j]表示s串长度为0，故必然为子串
+        for (int j = 0; j <= t_n; ++j) {
+            dp[0][j] = true;
+        }
+
+        for (int i = 1; i <= s_n; ++i) {
+            for (int j = 1; j <= t_n; ++j) {
+                if (s[i - 1] == t[j - 1]) {
+                    // s[i]=t[j]时，表示s的子串末位与t的子串末位相等，把其二者删掉，剩余的2个子串仍有包含关系
+                    // 即dp[i - 1][j - 1]仍为true
+                    dp[i][j] = dp[i - 1][j - 1]; // 始终为1
+                } else {
+                    // 反之，若二者末位不相等，还有其他可能的包含关系，则只能是t的长度-1（例：s=ab，t=abc）
+                    dp[i][j] = dp[i][j - 1]; // 有1有0
+                }
+            }
+        }
+        return dp[s_n][t_n];
+    }
 };
 
 void test392() {
-    string s = "";
-    string t = "ahbgdc";
-    bool output = Solution392::isSubsequence2(s, t);
+    string s = "abc";
+    string t = "ahbgdce";
+    bool output = Solution392::isSubsequence3(s, t);
     cout << output << endl;
 }
