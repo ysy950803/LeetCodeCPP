@@ -6,8 +6,9 @@
 //#include "dynamic_programming/divisor_game.cpp"
 //#include "dynamic_programming/best_time_to_buy_and_sell_stock.cpp"
 //#include "dynamic_programming/min_cost_climbing_stairs.cpp"
-#include "dynamic_programming/is_subsequence.cpp"
+//#include "dynamic_programming/is_subsequence.cpp"
 //#include "dynamic_programming/climbing_stairs.cpp"
+#include "dynamic_programming/maximum_subarray.cpp"
 
 int main() {
     std::cout << "Hello, World!" << std::endl;
@@ -18,7 +19,8 @@ int main() {
 //    test1025();
 //    test121();
 //    test746();
-    test392();
+//    test392();
 //    test70();
+    test53();
     return 0;
 }
