@@ -23,40 +23,53 @@ public:
         return max;
     }
 
+    // O(n)时间复杂度
     static int maxSubArray2(vector<int> &nums) {
         int n = nums.size();
         int sum = 0;
         int max = nums[0];
+        // 在遍历过程中start和end可能是不断移动的，end其实对最终算法没有必要作用
         int start = -1, end = -1;
 
         for (int i = 0; i < n; ++i) {
             if (start == -1) {
+                // 找到第一个不为负的数作为起点
                 if (nums[i] >= 0) {
                     start = i;
-//                    end = i;
                     sum = nums[i];
+
+                    // 辅助理解
+                    end = i;
                 } else {
+                    // 如果全都是负数，直接取最大的
                     if (nums[i] > max) {
                         max = nums[i];
                     }
                 }
             } else if (start >= 0) {
+                // 只要前面的sum小于0，就会导致总和变小，应该丢弃，并刷新起点
                 if (sum < 0) {
                     start = i;
-//                    end = i;
                     sum = nums[i];
+
+                    // 辅助理解
+                    end = i;
                 } else {
                     sum += nums[i];
-//                    if (nums[i] >= 0 && sum > max) {
-//                        end = i;
-//                    }
+
+                    // 辅助理解
+                    if (nums[i] >= 0 && sum > max) {
+                        end = i;
+                    }
                 }
             }
             if (start >= 0 && sum > max) {
                 max = sum;
             }
         }
-//        cout << start << " " << end << endl;
+
+        // 辅助理解
+        cout << start << " " << end << endl;
         return max;
     }
 };

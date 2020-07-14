@@ -41,7 +41,7 @@ public:
                 }
                 move_c = s[++cursor];
             }
-            // 大串剩余部分已不足校验子串，直接false
+            // 大串剩余部分已不足校验子序列，直接false
             if (s_n - cursor > t_n - 1 - i) {
                 return false;
             }
@@ -49,15 +49,15 @@ public:
         return false;
     }
 
-    // 状态转移：dp[i][j]是一个bool矩阵，矩阵元素表示 长度为i的s的子串 是否为 长度为j的t的子串 的子串
+    // 状态转移：dp[i][j]是一个bool矩阵，矩阵元素表示 长度为i的s的子序列 是否为 长度为j的t的子序列 的子序列
     static bool isSubsequence3(string s, string t) {
         int s_n = s.size(), t_n = t.size();
         bool dp[s_n + 1][t_n + 1];
-        // dp[i][0]表示t串长度为0,故必然不为子串
+        // dp[i][0]表示t串长度为0，故必然不为子序列
         for (int i = 0; i <= s_n; ++i) {
             dp[i][0] = false;
         }
-        // dp[0][j]表示s串长度为0，故必然为子串
+        // dp[0][j]表示s串长度为0，故必然为子序列
         for (int j = 0; j <= t_n; ++j) {
             dp[0][j] = true;
         }
@@ -65,7 +65,7 @@ public:
         for (int i = 1; i <= s_n; ++i) {
             for (int j = 1; j <= t_n; ++j) {
                 if (s[i - 1] == t[j - 1]) {
-                    // s[i]=t[j]时，表示s的子串末位与t的子串末位相等，把其二者删掉，剩余的2个子串仍有包含关系
+                    // s[i]=t[j]时，表示s的子序列末位与t的子序列末位相等，把其二者删掉，剩余的2个子序列仍有包含关系
                     // 即dp[i - 1][j - 1]仍为true
                     dp[i][j] = dp[i - 1][j - 1]; // 始终为1
                 } else {
