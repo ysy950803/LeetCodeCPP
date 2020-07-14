@@ -10,6 +10,9 @@
 //#include "dynamic_programming/is_subsequence.cpp"
 //#include "dynamic_programming/climbing_stairs.cpp"
 //#include "dynamic_programming/maximum_subarray.cpp"
+//#include "dynamic_programming/house_robber.cpp"
+//#include "dynamic_programming/range_sum_query-immutable.cpp"
+#include "tree/range_sum_of_bst.cpp"
 
 using namespace std;
 
@@ -26,5 +29,8 @@ int main() {
 //    test392();
 //    test70();
 //    test53();
+//    test198();
+//    test303();
+    test938();
     return 0;
 }
