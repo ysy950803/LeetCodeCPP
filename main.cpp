@@ -12,7 +12,10 @@
 //#include "dynamic_programming/maximum_subarray.cpp"
 //#include "dynamic_programming/house_robber.cpp"
 //#include "dynamic_programming/range_sum_query-immutable.cpp"
-#include "tree/range_sum_of_bst.cpp"
+//#include "tree/range_sum_of_bst.cpp"
+//#include "tree/merge_two_binary_trees.cpp"
+//#include "greedy/split_a_string_in_balanced_strings.cpp"
+#include "greedy/minimum_subsequence_in_non-increasing_order.cpp"
 
 using namespace std;
 
@@ -23,6 +26,7 @@ int main() {
 //    test1431();
 //    test1486();
 //    test1365();
+
 //    test1025();
 //    test121();
 //    test746();
@@ -31,6 +35,11 @@ int main() {
 //    test53();
 //    test198();
 //    test303();
-    test938();
+
+//    test938();
+//    test617();
+
+//    test1221();
+    test1403();
     return 0;
 }

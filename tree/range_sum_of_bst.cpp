@@ -1,22 +1,9 @@
 #include <iostream>
 #include <stack>
+#include <queue>
+#include "tree_node.h"
 
 using namespace std;
-
-/**
- * Definition for a binary tree node.
- */
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
 
 class Solution938 {
 private:
@@ -31,12 +18,14 @@ public:
         return (l <= v && v <= r ? v : 0) + sumOfNode(node->left) + sumOfNode(node->right);
     }
 
+    // 递归
     int rangeSumBST(TreeNode *root, int L, int R) {
         l = L;
         r = R;
         return sumOfNode(root);
     }
 
+    // 回溯，优先遍历left
     int rangeSumBST2(TreeNode *root, int L, int R) {
         int sum = 0;
         if (root == nullptr) {
@@ -73,15 +62,57 @@ public:
             int n_v = node->val;
             if (L <= n_v && n_v <= R) _sum += n_v;
             if (L < n_v) dfs(node->left, L, R);
-            if (n_v < R)dfs(node->right, L, R);
+            if (n_v < R) dfs(node->right, L, R);
         }
     }
 
-    // 以上都不考虑特性，此方法考虑BST(binary search tree)特性：left < root < right
+    // 以上都不考虑特性，此方法考虑BST（二叉查找树）特性：left < root < right
     int rangeSumBST3(TreeNode *root, int L, int R) {
         _sum = 0;
         dfs(root, L, R);
         return _sum;
+    }
+
+    // 队列，经典DFS
+    int rangeSumBST4(TreeNode *root, int L, int R) {
+        queue<TreeNode *> node_queue;
+        node_queue.push(root);
+        int sum = 0;
+
+        while (!node_queue.empty()) {
+            TreeNode *node = node_queue.front();
+            node_queue.pop();
+            int n_v = node->val;
+            if (L <= n_v && n_v <= R) {
+                sum += n_v;
+            }
+
+            if (node->left != nullptr) node_queue.push(node->left);
+            if (node->right != nullptr) node_queue.push(node->right);
+        }
+        return sum;
+    }
+
+    // 队列，经典BFS
+    int rangeSumBST5(TreeNode *root, int L, int R) {
+        queue<TreeNode *> node_queue;
+        node_queue.push(root);
+        int sum = 0;
+
+        while (!node_queue.empty()) {
+            for (int i = 0; i < node_queue.size(); ++i) {
+                TreeNode *node = node_queue.front();
+                node_queue.pop();
+                int n_v = node->val;
+                if (L <= n_v && n_v <= R) {
+                    sum += n_v;
+                }
+
+                if (node->left != nullptr) node_queue.push(node->left);
+                if (node->right != nullptr) node_queue.push(node->right);
+            }
+        }
+        return sum;
     }
 };
 
@@ -95,5 +126,5 @@ void test938() {
     TreeNode t3_1(3), t3_2(7), t3_4(18);
     TreeNode t2_1(5, &t3_1, &t3_2), t2_2(15, nullptr, &t3_4);
     TreeNode root(10, &t2_1, &t2_2);
-    cout << Solution938().rangeSumBST3(&root, 7, 15) << endl;
+    cout << Solution938().rangeSumBST5(&root, 7, 15) << endl;
 }
