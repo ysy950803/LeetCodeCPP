@@ -15,7 +15,8 @@
 //#include "tree/range_sum_of_bst.cpp"
 //#include "tree/merge_two_binary_trees.cpp"
 //#include "greedy/split_a_string_in_balanced_strings.cpp"
-#include "greedy/minimum_subsequence_in_non-increasing_order.cpp"
+//#include "greedy/minimum_subsequence_in_non-increasing_order.cpp"
+#include "greedy/delete_columns_to_make_sorted.cpp"
 
 using namespace std;
 
@@ -40,6 +41,7 @@ int main() {
 //    test617();
 
 //    test1221();
-    test1403();
+//    test1403();
+    test944();
     return 0;
 }

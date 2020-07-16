@@ -7,21 +7,21 @@ using namespace std;
 class Solution1403 {
 public:
     static vector<int> minSubsequence(vector<int> &nums) {
-        sort(nums.begin(), nums.end());
-        int sum = 0;
+        int sum = 0, ans_sum = 0;
+        auto begin = nums.begin();
+        sort(begin, nums.end(), greater<>()); // dec
+
         for (int num : nums) sum += num;
         sum /= 2;
 
-        vector<int> ans;
-        int ans_sum = 0;
-        for (int i = nums.size() - 1; i >= 0; --i) {
+        for (int i = 0; i < nums.size(); ++i) {
             ans_sum += nums[i];
-            ans.push_back(nums[i]);
             if (ans_sum > sum) {
+                nums = vector<int>(begin, begin + i + 1);
                 break;
             }
         }
-        return ans;
+        return nums;
     }
 };
 
