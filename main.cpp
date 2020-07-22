@@ -16,7 +16,9 @@
 //#include "tree/merge_two_binary_trees.cpp"
 //#include "greedy/split_a_string_in_balanced_strings.cpp"
 //#include "greedy/minimum_subsequence_in_non-increasing_order.cpp"
-#include "greedy/delete_columns_to_make_sorted.cpp"
+//#include "greedy/delete_columns_to_make_sorted.cpp"
+//#include "greedy/play_with_chips.cpp"
+#include "greedy/last_stone_weight.cpp"
 
 using namespace std;
 
@@ -42,6 +44,8 @@ int main() {
 
 //    test1221();
 //    test1403();
-    test944();
+//    test944();
+//    test1217();
+    test1046();
     return 0;
 }
