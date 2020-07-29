@@ -20,6 +20,7 @@
 #include "greedy/play_with_chips.hpp"
 #include "heap/last_stone_weight.hpp"
 #include "heap/kth_largest_element_in_a_stream.hpp"
+#include "graph/find_the_town_judge.hpp"
 
 using namespace std;
 
@@ -48,6 +49,7 @@ int main() {
 //    test944();
 //    test1217();
 //    test1046();
-    test703();
+//    test703();
+    test997();
     return 0;
 }
