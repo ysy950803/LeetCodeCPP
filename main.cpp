@@ -21,6 +21,7 @@
 #include "heap/last_stone_weight.hpp"
 #include "heap/kth_largest_element_in_a_stream.hpp"
 #include "graph/find_the_town_judge.hpp"
+#include "graph/flower_planting_with_no_adjacent.hpp"
 
 using namespace std;
 
@@ -50,6 +51,7 @@ int main() {
 //    test1217();
 //    test1046();
 //    test703();
-    test997();
+//    test997();
+    test1042();
     return 0;
 }
