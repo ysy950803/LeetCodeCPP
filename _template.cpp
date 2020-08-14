@@ -11,7 +11,7 @@ public:
 };
 
 void testN() {
-    int a[] = {};
+    int a[] = {1};
     vector<int> input(a, a + size(a));
     vector<bool> output = SolutionN::doSolution(input);
     copy(output.begin(), output.end(), ostream_iterator<bool>(cout, " "));

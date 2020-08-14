@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution198 {
 public:
-    static int rob(vector<int> &nums) {
+     int rob(vector<int> &nums) {
         int n = nums.size();
         int dp[n + 2];
         dp[n] = 0;

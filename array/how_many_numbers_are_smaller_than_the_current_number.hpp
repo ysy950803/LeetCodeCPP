@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution1365 {
 public:
-    static vector<int> smallerNumbersThanCurrent(vector<int> &nums) {
+    vector<int> smallerNumbersThanCurrent(vector<int> &nums) {
         int n = nums.size();
         vector<int> ans(n);
         int count;
@@ -23,7 +23,7 @@ public:
     }
 
     // BEST
-    static vector<int> smallerNumbersThanCurrent2(vector<int> &nums) {
+    vector<int> smallerNumbersThanCurrent2(vector<int> &nums) {
         int n = nums.size();
         vector<int> trans(102, 0);
         vector<int> ans(n);
@@ -38,6 +38,6 @@ public:
 void test1365() {
     int a[] = {5, 0, 10, 0, 10, 6};
     vector<int> input(a, a + size(a));
-    vector<int> output = Solution1365::smallerNumbersThanCurrent2(input);
+    vector<int> output = Solution1365().smallerNumbersThanCurrent2(input);
     copy(output.begin(), output.end(), ostream_iterator<int>(cout, " "));
 }

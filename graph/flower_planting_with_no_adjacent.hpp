@@ -7,7 +7,7 @@ using namespace std;
 class Solution1042 {
 public:
     // Time Limit Exceeded
-    static vector<int> gardenNoAdj(int N, vector<vector<int>> &paths) {
+    vector<int> gardenNoAdj(int N, vector<vector<int>> &paths) {
         // [[1,2],[2,3],[3,4],[4,1],[1,3],[2,4]]
 
         //    1 2 3 4
@@ -53,7 +53,7 @@ public:
         return vector<int>(colors.begin() + 1, colors.end());
     }
 
-    static vector<int> gardenNoAdj2(int N, vector<vector<int>> &paths) {
+    vector<int> gardenNoAdj2(int N, vector<vector<int>> &paths) {
         vector<int> result(N);
         vector<vector<int>> G(N);
         for (const auto &path : paths) {
@@ -80,6 +80,6 @@ void test1042() {
     vector<vector<int> > v;
     v.push_back(v11);
     v.push_back(v12);
-    vector<int> output = Solution1042::gardenNoAdj2(4, v);
+    vector<int> output = Solution1042().gardenNoAdj2(4, v);
     copy(output.begin(), output.end(), ostream_iterator<int>(cout, " "));
 }

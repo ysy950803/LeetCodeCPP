@@ -6,7 +6,7 @@ using namespace std;
 class Solution53 {
 public:
     // Time Limit Exceeded
-    static int maxSubArray(vector<int> &nums) {
+    int maxSubArray(vector<int> &nums) {
         int n = nums.size();
         int max = 0;
         for (int len = 1; len <= n; ++len) { // 滑动长度
@@ -24,7 +24,7 @@ public:
     }
 
     // O(n)时间复杂度
-    static int maxSubArray2(vector<int> &nums) {
+    int maxSubArray2(vector<int> &nums) {
         int n = nums.size();
         int sum = 0;
         int max = nums[0];
@@ -79,5 +79,5 @@ void test53() {
     int a[] = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
     int a2[] = {-2, -11, -3, -4, -12, -2, -13, -5, -4};
     vector<int> input(a2, a2 + size(a2));
-    cout << Solution53::maxSubArray2(input) << endl;
+    cout << Solution53().maxSubArray2(input) << endl;
 }

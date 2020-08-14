@@ -6,7 +6,7 @@ using namespace std;
 
 class Solution1403 {
 public:
-    static vector<int> minSubsequence(vector<int> &nums) {
+    vector<int> minSubsequence(vector<int> &nums) {
         int sum = 0, ans_sum = 0;
         auto begin = nums.begin();
         sort(begin, nums.end(), greater<>()); // dec
@@ -28,6 +28,6 @@ public:
 void test1403() {
     int a[] = {4, 3, 10, 9, 8};
     vector<int> input(a, a + size(a));
-    vector<int> output = Solution1403::minSubsequence(input);
+    vector<int> output = Solution1403().minSubsequence(input);
     copy(output.begin(), output.end(), ostream_iterator<int>(cout, " "));
 }

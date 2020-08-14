@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution1025 {
 public:
-    static bool divisorGame(int N) {
+    bool divisorGame(int N) {
         unordered_map<int, int> dp;
         return memoization(N, &dp);
     }
@@ -18,13 +18,13 @@ public:
     // 3. at the end, the opponent can only choose x = 1 and we win
     // 4. in summary, we win if only if we get an even and
     //    keeps even until the opponent loses
-    static bool divisorGame2(int N) {
+    bool divisorGame2(int N) {
         return N % 2 == 0;
     }
 
 private:
     // 记忆化搜索
-    static bool memoization(int N, unordered_map<int, int> *dp) {
+    bool memoization(int N, unordered_map<int, int> *dp) {
         if (N == 1) {
             return false;
         }
@@ -46,6 +46,6 @@ private:
 };
 
 void test1025() {
-    bool result = Solution1025::divisorGame2(10);
+    bool result = Solution1025().divisorGame2(10);
     cout << result << endl;
 }

@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution1217 {
 public:
-    static int minCostToMoveChips(vector<int> &chips) {
+    int minCostToMoveChips(vector<int> &chips) {
         int n = chips.size();
         int even_count = 0;
         for (int i = 0; i < n; ++i) {
@@ -21,5 +21,5 @@ public:
 void test1217() {
     int a[] = {2, 2, 2, 3, 3};
     vector<int> input(a, a + size(a));
-    cout << Solution1217::minCostToMoveChips(input) << endl;
+    cout << Solution1217().minCostToMoveChips(input) << endl;
 }

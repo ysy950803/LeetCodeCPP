@@ -6,7 +6,7 @@ void spread();
 
 class Solution1486 {
 public:
-    static int xorOperation(int n, int start) {
+    int xorOperation(int n, int start) {
         int xor_sum = start;
         for (int i = 1; i < n; ++i) {
             xor_sum ^= (start + (i << 1));
@@ -16,7 +16,7 @@ public:
 };
 
 void test1486() {
-    int output = Solution1486::xorOperation(10, 5);
+    int output = Solution1486().xorOperation(10, 5);
     cout << output << endl;
 
     spread();

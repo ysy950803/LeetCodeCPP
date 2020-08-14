@@ -14,7 +14,7 @@ public:
     // stair[n - 2] with 2 steps to stair[n], so we have f(n - 2) ways.
     // stair[n - 1] with 1 step to stair[n], so we have f(n - 1) ways.
     // Finally Get: f(n) = f(n - 1) + f(n - 2)
-    static int climbStairs(int n) {
+    int climbStairs(int n) {
         if (n == 1) {
             return 1;
         } else if (n == 2) {
@@ -33,7 +33,7 @@ public:
     // 矩阵快速幂
     // Fibo证明：https://zh.wikipedia.org/wiki/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97
     // 下面全部用二级指针处理，啊！太痛苦了！还是vector大法好！
-    static int climbStairs2(int n) {
+    int climbStairs2(int n) {
         int **q;
         q = new int *[2];
         int q_v[2][2] = {{1, 1},
@@ -49,7 +49,7 @@ public:
         return res[0][0];
     }
 
-    static int **pow(int **a, int n) {
+    int **pow(int **a, int n) {
         int **ret;
         ret = new int *[2];
         int ret_v[2][2] = {{1, 0},
@@ -71,7 +71,7 @@ public:
         return ret;
     }
 
-    static int **multiply(int **a, int **b) {
+    int **multiply(int **a, int **b) {
         int **c;
         c = new int *[2];
         for (int i = 0; i < 2; i++) {
@@ -85,7 +85,7 @@ public:
 };
 
 void test70() {
-    cout << Solution70::climbStairs2(45) << endl;
+    cout << Solution70().climbStairs2(45) << endl;
 
 //    int a[3] = {1, 2, 3};
 //    int *p1 = a;

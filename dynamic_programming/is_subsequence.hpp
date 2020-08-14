@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution392 {
 public:
-    static bool isSubsequence(string s, string t) {
+    bool isSubsequence(string s, string t) {
         int count = 0, cursor = 0;
         bool add;
         for (char a : s) {
@@ -26,7 +26,7 @@ public:
     }
 
     // 双指针，和第一种解法类似
-    static bool isSubsequence2(string s, string t) {
+    bool isSubsequence2(string s, string t) {
         int s_n = s.size();
         if (s_n == 0) return true;
 
@@ -50,7 +50,7 @@ public:
     }
 
     // 状态转移：dp[i][j]是一个bool矩阵，矩阵元素表示 长度为i的s的子序列 是否为 长度为j的t的子序列 的子序列
-    static bool isSubsequence3(string s, string t) {
+    bool isSubsequence3(string s, string t) {
         int s_n = s.size(), t_n = t.size();
         bool dp[s_n + 1][t_n + 1];
         // dp[i][0]表示t串长度为0，故必然不为子序列
@@ -81,6 +81,6 @@ public:
 void test392() {
     string s = "abc";
     string t = "ahbgdce";
-    bool output = Solution392::isSubsequence3(s, t);
+    bool output = Solution392().isSubsequence3(s, t);
     cout << output << endl;
 }

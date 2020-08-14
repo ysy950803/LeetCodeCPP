@@ -22,7 +22,9 @@
 //#include "heap/kth_largest_element_in_a_stream.hpp"
 //#include "graph/find_the_town_judge.hpp"
 //#include "graph/flower_planting_with_no_adjacent.hpp"
-#include "design/lru_cache.hpp"
+//#include "design/lru_cache.hpp"
+//#include "math/count_primes.hpp"
+#include "math/super_pow.hpp"
 
 using namespace std;
 
@@ -33,7 +35,7 @@ int main() {
 //    test1431();
 //    test1486();
 //    test1365();
-//
+
 //    test1025();
 //    test121();
 //    test746();
@@ -42,18 +44,24 @@ int main() {
 //    test53();
 //    test198();
 //    test303();
-//
+
 //    test938();
 //    test617();
-//
+
 //    test1221();
 //    test1403();
 //    test944();
 //    test1217();
+
 //    test1046();
 //    test703();
+
 //    test997();
 //    test1042();
-    test146();
+
+//    test146();
+
+//    test204();
+    test372();
     return 0;
 }

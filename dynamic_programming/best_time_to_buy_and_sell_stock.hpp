@@ -6,7 +6,7 @@ using namespace std;
 class Solution121 {
 public:
     // Time Limit Exceeded
-    static int maxProfit(vector<int> &prices) {
+    int maxProfit(vector<int> &prices) {
         int n = (int) prices.size() - 1;
         vector<vector<int>> diff_map(n);
         for (int i = 0; i < n; ++i) {
@@ -28,7 +28,7 @@ public:
     }
 
     // Time Limit Exceeded
-    static int maxProfit2(vector<int> &prices) {
+    int maxProfit2(vector<int> &prices) {
         int max = 0;
         int n = (int) prices.size() - 1;
         for (int i = 0; i < n; ++i) {
@@ -43,7 +43,7 @@ public:
     }
 
     // BEST
-    static int maxProfit3(vector<int> &prices) {
+    int maxProfit3(vector<int> &prices) {
         if (prices.size() <= 1) {
             return 0;
         }
@@ -70,6 +70,6 @@ void test121() {
     int b[] = {7, 6, 4, 3, 1};
     int e[] = {};
     vector<int> input(e, e + 0);
-    int output = Solution121::maxProfit3(input);
+    int output = Solution121().maxProfit3(input);
     cout << output << endl;
 }

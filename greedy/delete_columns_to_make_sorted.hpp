@@ -5,7 +5,7 @@ using namespace std;
 
 class Solution944 {
 public:
-    static int minDeletionSize(vector<string> &A) {
+    int minDeletionSize(vector<string> &A) {
         int n = A.size();
         if (n <= 1) {
             return 0;
@@ -29,5 +29,5 @@ public:
 void test944() {
     string a[] = {"cba", "daf", "ghi"};
     vector<string> input(a, a + size(a));
-    cout << Solution944::minDeletionSize(input) << endl;
+    cout << Solution944().minDeletionSize(input) << endl;
 }
