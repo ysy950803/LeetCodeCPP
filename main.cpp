@@ -4,6 +4,7 @@
 //#include "array/kids_with_the_greatest_number_of_candies.hpp"
 //#include "array/xor_operation_in_an_rray.hpp"
 //#include "array/how_many_numbers_are_smaller_than_the_current_number.hpp"
+//#include "array/third_maximum_number.hpp"
 //#include "dynamic_programming/divisor_game.hpp"
 //#include "dynamic_programming/best_time_to_buy_and_sell_stock.hpp"
 //#include "dynamic_programming/min_cost_climbing_stairs.hpp"
@@ -11,6 +12,7 @@
 //#include "dynamic_programming/climbing_stairs.hpp"
 //#include "dynamic_programming/maximum_subarray.hpp"
 //#include "dynamic_programming/house_robber.hpp"
+#include "dynamic_programming/house_robber_2.hpp"
 //#include "dynamic_programming/range_sum_query-immutable.hpp"
 //#include "tree/range_sum_of_bst.hpp"
 //#include "tree/merge_two_binary_trees.hpp"
@@ -25,7 +27,7 @@
 //#include "design/lru_cache.hpp"
 //#include "math/count_primes.hpp"
 //#include "math/super_pow.hpp"
-#include "hash_table/first_unique_character_in_a_string.hpp"
+//#include "hash_table/first_unique_character_in_a_string.hpp"
 
 using namespace std;
 
@@ -36,6 +38,7 @@ int main() {
 //    test1431();
 //    test1486();
 //    test1365();
+//    test414();
 
 //    test1025();
 //    test121();
@@ -44,6 +47,7 @@ int main() {
 //    test70();
 //    test53();
 //    test198();
+    test213();
 //    test303();
 
 //    test938();
@@ -64,6 +68,7 @@ int main() {
 
 //    test204();
 //    test372();
-    test387();
+
+//    test387();
     return 0;
 }

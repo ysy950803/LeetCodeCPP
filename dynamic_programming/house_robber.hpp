@@ -20,5 +20,5 @@ public:
 void test198() {
     int a[] = {2, 7, 9, 3, 1};
     vector<int> input(a, a + size(a));
-    cout << Solution198::rob(input) << endl;
+    cout << Solution198().rob(input) << endl;
 }
