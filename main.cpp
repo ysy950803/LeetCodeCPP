@@ -24,7 +24,8 @@
 //#include "graph/flower_planting_with_no_adjacent.hpp"
 //#include "design/lru_cache.hpp"
 //#include "math/count_primes.hpp"
-#include "math/super_pow.hpp"
+//#include "math/super_pow.hpp"
+#include "hash_table/first_unique_character_in_a_string.hpp"
 
 using namespace std;
 
@@ -62,6 +63,7 @@ int main() {
 //    test146();
 
 //    test204();
-    test372();
+//    test372();
+    test387();
     return 0;
 }
