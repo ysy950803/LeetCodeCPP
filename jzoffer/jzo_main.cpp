@@ -3,7 +3,9 @@
 
 using namespace std;
 
-class Solution4 {
+// LC：面试题4
+// NC：JZ1
+class Solution1 {
 public:
     bool findNumberIn2DArray(vector<vector<int>> &matrix, int target) {
         if (matrix.empty() || matrix[0].empty()) {
@@ -30,7 +32,9 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-class Solution6 {
+// LC：剑指 Offer 06
+// NC：JZ3
+class Solution2 {
 public:
     ListNode *reverse(ListNode *head) {
         if (head == nullptr || head->next == nullptr) return head;
@@ -65,12 +69,12 @@ int main() {
                            {10, 13, 14, 17, 24},
                            {18, 21, 23, 26, 30}
                           });
-//    cout << Solution4().findNumberIn2DArray(m, 32);
+    cout << Solution1().findNumberIn2DArray(m, 32);
 
     auto n3 = ListNode(3, nullptr);
     auto n2 = ListNode(2, &n3);
     auto head = ListNode(1, &n2);
-    vector<int> output = Solution6().reversePrint(&head);
+    vector<int> output = Solution2().reversePrint(&head);
     copy(output.begin(), output.end(), ostream_iterator<int>(cout, " "));
     return 0;
 }
