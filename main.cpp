@@ -12,7 +12,7 @@
 //#include "dynamic_programming/climbing_stairs.hpp"
 //#include "dynamic_programming/maximum_subarray.hpp"
 //#include "dynamic_programming/house_robber.hpp"
-#include "dynamic_programming/house_robber_2.hpp"
+//#include "dynamic_programming/house_robber_2.hpp"
 //#include "dynamic_programming/range_sum_query-immutable.hpp"
 //#include "tree/range_sum_of_bst.hpp"
 //#include "tree/merge_two_binary_trees.hpp"
@@ -28,6 +28,8 @@
 //#include "math/count_primes.hpp"
 //#include "math/super_pow.hpp"
 //#include "hash_table/first_unique_character_in_a_string.hpp"
+#include "binary_search/koko_eating_bananas.hpp"
+//#include "binary_search/kth_smallest_element_in_a_sorted_matrix.hpp"
 
 using namespace std;
 
@@ -47,7 +49,7 @@ int main() {
 //    test70();
 //    test53();
 //    test198();
-    test213();
+//    test213();
 //    test303();
 
 //    test938();
@@ -70,5 +72,8 @@ int main() {
 //    test372();
 
 //    test387();
+
+    test875();
+//    test378();
     return 0;
 }
