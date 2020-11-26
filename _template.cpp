@@ -10,9 +10,8 @@ public:
     }
 };
 
-void testN() {
-    int a[] = {1};
-    vector<int> input(a, a + size(a));
+void test69() {
+    vector<int> input({1, 2, 3});
     vector<bool> output = SolutionN::doSolution(input);
     copy(output.begin(), output.end(), ostream_iterator<bool>(cout, " "));
 }

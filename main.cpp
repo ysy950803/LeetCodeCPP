@@ -5,6 +5,8 @@
 //#include "array/xor_operation_in_an_rray.hpp"
 //#include "array/how_many_numbers_are_smaller_than_the_current_number.hpp"
 //#include "array/third_maximum_number.hpp"
+//#include "array/maximum_product_of_two_elements_in_an_array.hpp"
+
 //#include "dynamic_programming/divisor_game.hpp"
 //#include "dynamic_programming/best_time_to_buy_and_sell_stock.hpp"
 //#include "dynamic_programming/min_cost_climbing_stairs.hpp"
@@ -14,22 +16,31 @@
 //#include "dynamic_programming/house_robber.hpp"
 //#include "dynamic_programming/house_robber_2.hpp"
 //#include "dynamic_programming/range_sum_query-immutable.hpp"
+
 //#include "tree/range_sum_of_bst.hpp"
 //#include "tree/merge_two_binary_trees.hpp"
+
 //#include "greedy/split_a_string_in_balanced_strings.hpp"
 //#include "greedy/minimum_subsequence_in_non-increasing_order.hpp"
 //#include "greedy/delete_columns_to_make_sorted.hpp"
 //#include "greedy/play_with_chips.hpp"
+
 //#include "heap/last_stone_weight.hpp"
 //#include "heap/kth_largest_element_in_a_stream.hpp"
+
 //#include "graph/find_the_town_judge.hpp"
 //#include "graph/flower_planting_with_no_adjacent.hpp"
+
 //#include "design/lru_cache.hpp"
+
 //#include "math/count_primes.hpp"
 //#include "math/super_pow.hpp"
+
 //#include "hash_table/first_unique_character_in_a_string.hpp"
-#include "binary_search/koko_eating_bananas.hpp"
+
+//#include "binary_search/koko_eating_bananas.hpp"
 //#include "binary_search/kth_smallest_element_in_a_sorted_matrix.hpp"
+#include "binary_search/sqrtx.hpp"
 
 using namespace std;
 
@@ -41,6 +52,7 @@ int main() {
 //    test1486();
 //    test1365();
 //    test414();
+//    test1464();
 
 //    test1025();
 //    test121();
@@ -73,7 +85,8 @@ int main() {
 
 //    test387();
 
-    test875();
+//    test875();
 //    test378();
+    test69();
     return 0;
 }

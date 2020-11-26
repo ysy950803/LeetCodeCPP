@@ -9,8 +9,11 @@ public:
         int max1 = nums[0];
         int max2 = -2147483648;
         int max3 = -2147483648;
+        // 统计正常值的个数
         int count1 = max1 > -2147483648 ? 1 : 0;
-        int count2 = max1 > -2147483648 ? 0 : 1;
+        // 统计负最大值的个数，处理特殊情况：[max1, max2, -2147483648]
+        // 做这个特殊计数的原因是nums取值范围包括了默认值，如果能取一个非此范围的默认值就不用特殊处理了
+        int count2 = max1 == -2147483648 ? 1 : 0;
         for (int i = 1; i < nums.size(); ++i) {
             if (nums[i] > max1) {
                 max3 = max2;

@@ -76,11 +76,10 @@ public:
     void put(int key, int value) {
         if (map.find(key) != map.end()) {
             Node *node = map[key];
-            node->value = value;
+            node->value = value; // 更新值
             cache->moveToRecent(node);
             return;
         }
-
         if (map.size() >= capacity) {
             map.erase(cache->removeOldest());
         }
