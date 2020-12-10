@@ -275,10 +275,10 @@ class Solution8:
 
 
 class TreeNode:
-    def __init__(self, x):
+    def __init__(self, x, _left=None, _right=None):
         self.val = x
-        self.left: TreeNode = None
-        self.right: TreeNode = None
+        self.left: TreeNode = _left
+        self.right: TreeNode = _right
 
 
 # LC：剑指 Offer 07
@@ -643,6 +643,193 @@ class Solution21:
         return res
 
 
+class Solution22:
+    def __init__(self):
+        self.k_count = 0
+
+    # LC：剑指 Offer 54
+    # k大（1<=k<=节点数）
+    def kthLargest(self, root: TreeNode, k: int) -> int:
+        fixed_queue = []
+
+        def find_large(node: TreeNode):
+            if not node:
+                return
+            find_large(node.right)
+            if self.k_count < k:
+                fixed_queue.append(node.val)
+                self.k_count += 1
+            find_large(node.left)
+
+        find_large(root)
+        return fixed_queue[-1]
+
+    # NC：JZ62
+    # k小（注意：k>0，可能超过节点数）
+    def KthNode(self, pRoot, k):
+        fixed_queue = []
+
+        def find_small(node):
+            if not node:
+                return
+            find_small(node.left)
+            if self.k_count < k:
+                fixed_queue.append(node)
+                self.k_count += 1
+            find_small(node.right)
+
+        find_small(pRoot)
+        if k == 0 or k > len(fixed_queue):
+            return None
+        else:
+            return fixed_queue[-1]
+
+
+# LC：剑指 Offer 37
+class Codec:
+    def serialize(self, root):
+        """Encodes a tree to a single string.
+
+        :type root: TreeNode
+        :rtype: str
+        """
+        if not root or root.val is None:
+            return "[]"
+        ret_str = '[' + str(root.val)
+        null_str = "null"
+
+        queue = [root]
+        q_val = []
+        while queue:
+            q_size = len(queue)
+            for i in range(q_size):
+                n = queue.pop(0)
+                if n.left:
+                    queue.append(n.left)
+                    q_val.append(str(n.left.val))
+                else:
+                    q_val.append(null_str)
+                if n.right:
+                    queue.append(n.right)
+                    q_val.append(str(n.right.val))
+                else:
+                    q_val.append(null_str)
+        q_val_size = len(q_val)
+        for i in range(q_val_size - 1, -1, -1):
+            if q_val[i] == null_str:
+                q_val.pop()
+            else:
+                break
+        if len(q_val) > 0:
+            ret_str += (',' + ','.join(q_val))
+        return ret_str + ']'
+
+    def deserialize(self, data):
+        """Decodes your encoded data to tree.
+
+        :type data: str
+        :rtype: TreeNode
+        """
+        if not data or data == "[]":
+            return None
+        data = data.replace('[', '').replace(']', '')
+        arr = data.split(',')
+        null_str = "null"
+        if not arr or arr[0] == null_str:
+            return None
+        root = TreeNode(arr[0])
+        next_dep_start_idx = 0
+
+        queue = [root]
+        arr_size = len(arr)
+        while queue:
+            q_size = len(queue)
+            for i in range(q_size):
+                n = queue.pop(0)
+                next_dep_start_idx += 1
+                if next_dep_start_idx >= arr_size:
+                    break
+                left_str = arr[next_dep_start_idx]
+                if left_str != null_str:
+                    n.left = TreeNode(int(left_str))
+                    queue.append(n.left)
+                next_dep_start_idx += 1
+                if next_dep_start_idx >= arr_size:
+                    break
+                right_str = arr[next_dep_start_idx]
+                if right_str != null_str:
+                    n.right = TreeNode(int(right_str))
+                    queue.append(n.right)
+        return root
+
+
+# Your Codec object will be instantiated and called as such:
+# codec = Codec()
+# codec.deserialize(codec.serialize(root))
+
+# LC：剑指 Offer 68 - I
+class Solution24:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        if not root or not p and not q:
+            return None
+        if not p:
+            return q
+        if not q:
+            return p
+        p_val = p.val
+        q_val = q.val
+        cur = root
+        while cur:
+            if cur.val >= p_val and cur.val >= q_val:
+                if cur.val == p_val or cur.val == q_val:
+                    break
+                cur = cur.left
+            elif cur.val <= p_val and cur.val <= q_val:
+                if cur.val == p_val or cur.val == q_val:
+                    break
+                cur = cur.right
+            elif p_val <= cur.val <= q_val or p_val >= cur.val >= q_val:
+                break
+        return cur
+
+
+# LC：剑指 Offer 68 - II
+class Solution25:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        if not root or not p and not q:
+            return None
+        if not p:
+            return q
+        if not q:
+            return p
+        node_queue = []
+
+        def find_node(node: TreeNode, val: int) -> bool:
+            if not node:
+                return False
+            node_queue.append(node)
+            if node.val == val:
+                return True
+            if not find_node(node.left, val) and not find_node(node.right, val):
+                node_queue.pop()
+                return False
+            else:
+                return True
+
+        find_node(root, p.val)
+        p_queue = list(node_queue)
+        node_queue.clear()
+        find_node(root, q.val)
+        q_queue = list(node_queue)
+        idx = 0
+        for i in range(min(len(p_queue), len(q_queue))):
+            if p_queue[i].val == q_queue[i].val:
+                idx = i
+            else:
+                break
+        return node_queue[idx]
+
+
 if __name__ == '__main__':
     print("Hello World!")
     # m = [
@@ -680,10 +867,18 @@ if __name__ == '__main__':
     #     print(head.val, end=" ")
     #     head = head.next
 
-    # pre = [1, 2, 3, 4, 5, 6, 7]
-    # tin = [3, 2, 4, 1, 6, 5, 7]
-    # head = Solution9().buildTree(pre, tin)
+    pre = [1, 2, 3, 4, 5, 6, 7]
+    tin = [3, 2, 4, 1, 6, 5, 7]
+    head = Solution9().buildTree(pre, tin)
     # Solution9().bfs_print(head)
 
     # print(Solution13().verifyPostorder([1, 3, 2, 6, 5]))
     # print(Solution13().verifyPostorder([1, 6, 3, 2, 5]))
+
+    # root = TreeNode(5, TreeNode(2), TreeNode(3, TreeNode(2, TreeNode(3), TreeNode(1)), TreeNode(4)))
+    root = TreeNode(1)
+    codec = Codec()
+    data = codec.serialize(root)
+    print(data)
+    root = codec.deserialize(data)
+    print(codec.serialize(root))
