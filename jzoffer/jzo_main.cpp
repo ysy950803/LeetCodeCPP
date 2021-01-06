@@ -63,6 +63,24 @@ public:
     }
 };
 
+// LC：剑指 Offer 22
+// NC：JZ14
+class Solution3 {
+public:
+    // 双指针滑动
+    ListNode* getKthFromEnd(ListNode* head, int k) {
+        ListNode *pre = head;
+        for (int i = 0; i < k - 1; ++i) {
+            head = head->next;
+        }
+        while (head->next) {
+            pre = pre->next;
+            head = head->next;
+        }
+        return pre;
+    }
+};
+
 /**
  * Definition for a binary tree node.
  */
@@ -310,6 +328,27 @@ public:
     }
 };
 
+void quick_sort(vector<int> &arr, int left, int right) {
+    if (left >= right) return;
+
+    int mid = arr[left];
+    int i = left, j = right;
+
+    while (i < j) {
+        while (i < j && mid <= arr[j]) {
+            --j;
+        }
+        arr[i] = arr[j];
+        while (i < j && mid >= arr[i]) {
+            ++i;
+        }
+        arr[j] = arr[i];
+    }
+    arr[i] = mid;
+    quick_sort(arr, left, i - 1);
+    quick_sort(arr, i + 1, right);
+}
+
 int main() {
 //    vector<vector<int>> m({{1,  4,  7,  11, 15},
 //                           {2,  5,  8,  12, 19},
@@ -325,8 +364,12 @@ int main() {
 //    vector<int> output = Solution2().reversePrint(&head);
 //    copy(output.begin(), output.end(), ostream_iterator<int>(cout, " "));
 
-    vector<int> pre({1, 2, 3, 4, 5, 6, 7});
-    vector<int> in({3, 2, 4, 1, 6, 5, 7});
-    Solution9().bfs_print(Solution9().buildTree(pre, in));
+//    vector<int> pre({1, 2, 3, 4, 5, 6, 7});
+//    vector<int> in({3, 2, 4, 1, 6, 5, 7});
+//    Solution9().bfs_print(Solution9().buildTree(pre, in));
+
+    vector<int> arr({1, 2, 3, 4, 5, 6, 7});
+    quick_sort(arr, 0, arr.size() - 1);
+    copy(arr.begin(), arr.end(), ostream_iterator<int>(cout, " "));
     return 0;
 }
